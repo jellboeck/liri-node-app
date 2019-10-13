@@ -1,15 +1,13 @@
 // require("dotenv").config();
 var keys = require("./keys.js");
 var axios = require("axios");
+var colors = require("colors");
 var moment = require("moment");
 var spotify = keys.spotify;
 var fs = require("fs");
 
 var action = process.argv[2];
-var value = process.argv[3];
-
-console.log(action);
-console.log(value);
+var value = process.argv.slice(3).join(" ");
 
 switch (action) {
     case "concert-this":
@@ -32,15 +30,19 @@ switch (action) {
 
 function concertThis() {
     var artist = value;
-    console.log(artist);
     var queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
 
     axios.get(queryURL).then(
         function (response) {
-            console.log("Venue: " + response.data[0].venue.name);
-            console.log("City: " + response.data[0].venue.city);
-            var eventDate = moment(response.data[0].datetime).format('MM/DD/YYYY');
-            console.log("Date: "+ eventDate);
+            console.log(colors.magenta("------------"))
+            for (var i = 0 ; i < 5 ; i++) {
+            console.log(colors.cyan("Artist: " + artist));
+            console.log(colors.cyan("Venue: " + response.data[i].venue.name));
+            console.log(colors.cyan("City: " + response.data[i].venue.city));
+            var eventDate = moment(response.data[i].datetime).format('MM/DD/YYYY');
+            console.log(colors.cyan("Date: "+ eventDate));
+            console.log(colors.magenta("------------"))
+            }
         })
 }
 
@@ -63,12 +65,12 @@ function spotify() {
 };
 
 function movieThis() {
-    var movieName = value.slice().join(" ");
-    console.log(movieName);
-    var queryURL = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=[trilogy]";
+    var movieName = value;
+    var queryURL = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
 
     axios.get(queryURL).then(
         function (response) {
+            console.log(colors.magenta("------------"))
             console.log("Title: " + response.data.Title);
             console.log("Year: " + response.data.Year);
             console.log("Rated: " + response.data.imdbRating);
@@ -77,6 +79,7 @@ function movieThis() {
             console.log("Language: " + response.data.Language);
             console.log("Plot: " + response.data.Plot);
             console.log("Actors: " + response.data.Actors);
+            console.log(colors.magenta("------------"))
 
         }
     );
