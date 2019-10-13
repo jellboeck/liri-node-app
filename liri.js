@@ -3,7 +3,8 @@ var keys = require("./keys.js");
 var axios = require("axios");
 var colors = require("colors");
 var moment = require("moment");
-var spotify = keys.spotify;
+var Spotify = require("node-spotify-api");
+var spotify = new Spotify(keys.spotify);
 var fs = require("fs");
 
 var action = process.argv[2];
@@ -15,7 +16,7 @@ switch (action) {
         break;
 
     case "spotify-this-song":
-        spotify(value);
+        spotifyThis(value);
         break;
 
     case "movie-this":
@@ -35,34 +36,37 @@ function concertThis() {
     axios.get(queryURL).then(
         function (response) {
             console.log(colors.magenta("------------"))
-            for (var i = 0 ; i < 5 ; i++) {
-            console.log(colors.cyan("Artist: " + artist));
-            console.log(colors.cyan("Venue: " + response.data[i].venue.name));
-            console.log(colors.cyan("City: " + response.data[i].venue.city));
-            var eventDate = moment(response.data[i].datetime).format('MM/DD/YYYY');
-            console.log(colors.cyan("Date: "+ eventDate));
-            console.log(colors.magenta("------------"))
+            for (var i = 0; i < 5; i++) {
+                console.log(colors.cyan("Artist: " + artist));
+                console.log(colors.cyan("Venue: " + response.data[i].venue.name));
+                console.log(colors.cyan("City: " + response.data[i].venue.city));
+                var eventDate = moment(response.data[i].datetime).format('MM/DD/YYYY');
+                console.log(colors.cyan("Date: " + eventDate));
+                console.log(colors.magenta("------------"))
             }
         })
 }
 
-function spotify() {
+function spotifyThis() {
     var songName = value;
-    console.log(songName);
-    spotify.request('https://api.spotify.com/v1/search?q=track:' + songName + '&type=track&limit=10', function (error, songResponse) {
-        if (error) {
-            return console.log(error);
-        }
-
-        else {
-            console.log("Artist: " + songResponse.tracks.items[0].artists[0].name);
-            console.log("Song: " + songResponse.tracks.items[0].name);
-            console.log("URL: " + songResponse.tracks.items[0].preview_url);
-            console.log("Album: " + songResponse.tracks.items[0].album.name);
-        }
-    });
-
-};
+    spotify
+        .search({ type: 'track', query: songName, limit: 1 })
+        .then(function (response) {
+            var song = response.tracks.items[0];
+            if (song != undefined) {
+                console.log(colors.magenta("------------"))
+                for (i = 0; i < song.artists.length; i++) {
+                    console.log("Artist: " + song.artists[i].name);
+                }
+                console.log("Song Name: " + song.name);
+                console.log("Preview Link: " + song.preview_url);
+                console.log("Album Name: " + song.album.name);
+                console.log(colors.magenta("------------"))
+            } else {
+                console.log(colors.red("Sorry! Can't find this song!"));
+            }
+        })
+}
 
 function movieThis() {
     var movieName = value;
