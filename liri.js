@@ -48,7 +48,15 @@ function concertThis() {
 }
 
 function spotifyThis() {
-    var songName = value;
+
+    if (value === "") {
+        var songName = "The Sign"
+    }
+
+    else {
+        var songName = value;
+    }
+
     spotify
         .search({ type: 'track', query: songName, limit: 1 })
         .then(function (response) {
@@ -69,7 +77,14 @@ function spotifyThis() {
 }
 
 function movieThis() {
-    var movieName = value;
+    if (value === "") {
+        var movieName = "Mr Nobody"
+    }
+
+    else {
+        var movieName = value;
+    }
+
     var queryURL = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
 
     axios.get(queryURL).then(
@@ -94,13 +109,24 @@ function doWhatItSays() {
         if (error) {
             return console.log(error);
         }
-        var output = data.split(",");
-        for (var i = 0; i < output.length; i++) {
-            console.log(output[i]);
-        }
-    });
-};
+        output = data.split(",");
 
+        if (output[0] === "spotify-this-song") {
+            value = output[1];
+            spotifyThis(value);
+        }
+
+        if (output[0] === "concert-this") {
+            value = output[1];
+            concertThis(value);
+        }
+
+        if (output[0] === "movie-this") {
+            value = output[1];
+            movieThis(value);
+        }
+    })
+};
 
 
 
