@@ -26,7 +26,7 @@ This will search the Bands in Town Artist Events API for an artist and render th
 
 - Name of the venue
 - Venue location
-- Date of the Event (use moment to format this as "MM/DD/YYYY")
+- Date of the Event (used moment to format this as "MM/DD/YYYY")
 
 
 ### Function: 
