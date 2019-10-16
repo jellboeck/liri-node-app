@@ -25,16 +25,16 @@ This will search the Bands in Town Artist Events API for an artist and render th
 
 ### Function: 
 
-![Image of concert-this function](/images.concert-this.PNG)
+![Image of concert-this function](/Images.concert-this.PNG)
 
 ### Input:
 
-![Image of concert-this input/command](/images.concert-this-command.PNG)
+![Image of concert-this input/command](/Images.concert-this-command.PNG)
 
 
 ### Output:
 
-![Image of concert-this output](/images.concert-this-output.PNG)
+![Image of concert-this output](/Images.concert-this-output.PNG)
 
 
 ## spotify-this-song:
