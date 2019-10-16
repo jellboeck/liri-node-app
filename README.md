@@ -45,7 +45,7 @@ This will search the Bands in Town Artist Events API for an artist and render th
 
 ## spotify-this-song:
 
-This will show the following information about the song in your terminal/bash window
+This will show the following information about the song in your terminal/bash window. If no search value is provided the default search will be "Hotel California"
 
 - Artist(s)
 - The song's name
@@ -76,6 +76,8 @@ This will output the following information to your terminal/bash window:
 - Language of the movie.
 - Plot of the movie.
 - Actors in the movie.
+
+If no search value is provided the default search will be "Blade Runner"
 
 ### Function:
 
