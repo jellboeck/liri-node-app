@@ -71,6 +71,18 @@ This will output the following information to your terminal/bash window:
 - Plot of the movie.
 - Actors in the movie.
 
+### Function:
+
+![Image of movie-this function](/Images/movie-this.PNG)
+
+### Input:
+
+![Image of movie-this input](/Images/movie-this-input.PNG)
+
+### Output:
+
+![Image of movie-this output](/Images/movie-this-output.PNG)
+
 ## do-what-it-says:
 
 LIRI will use the text from “random.txt” and call on of LIRI’s commands. It should run Spotify-this-song for “I want it That way”.
