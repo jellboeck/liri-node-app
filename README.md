@@ -46,6 +46,18 @@ This will show the following information about the song in your terminal/bash wi
 - A preview link of the song from Spotify
 - The album that the song is from
 
+### Function:
+
+![Image of spotify-this-song function](/Images/spotify-this.PNG)
+
+### Input:
+
+![Image of spotify-this-song input](/Images/spotify-this-input.PNG)
+
+### Output:
+
+![Image of spotify-this-song output](/Images/spotify-this-output.PNG)
+
 ## movie-this:
 
 This will output the following information to your terminal/bash window:
