@@ -14,6 +14,12 @@ LIRI is like iPhone's SIRI, however, while SIRI is a Speech Interpretation and R
 - NPM Packages: Axios, Colors, Moment, Node-Spotify-API
 - APIs: Spotify API, OMDB API, and Bands In Town API
 
+## Switch Statement: 
+
+A Switch Statement was used to capture the unique user command line input. This allowed LIRI to run the specific command that was entered by the user and access the appropriate code block
+
+![Image of Switch Statement](Images/switch-case.PNG)
+
 ## concert-this:
 
 This will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
@@ -86,3 +92,15 @@ This will output the following information to your terminal/bash window:
 ## do-what-it-says:
 
 LIRI will use the text from “random.txt” and call on of LIRI’s commands. It should run Spotify-this-song for “I want it That way”.
+
+### Function:
+
+![Image of do-what-it-says function](/Images/do-what-it-says.PNG)
+
+### Input:
+
+![Image of do-what-it-says input](/Images/do-what-it-says-input.PNG)
+
+### Output:
+
+![Image of do-what-it-says output](/Images/do-what-it-says-output.PNG)
