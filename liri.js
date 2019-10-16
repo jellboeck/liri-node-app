@@ -78,7 +78,7 @@ function spotifyThis() {
 
 function movieThis() {
     if (value === "") {
-        var movieName = "Mr Nobody"
+        var movieName = "Blade Runner"
     }
 
     else {

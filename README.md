@@ -1,13 +1,18 @@
 # LIRI-Node-App
 
-LIRI is a Language Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data. LIRI uses the following commands:
+LIRI is like iPhone's SIRI, however, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language Interpretation and Recognition Interface. LIRI is a command line node app that takes in one of four parameters and gives you back data. LIRI uses the following commands:
 
 - concert-this
 - spotify-this-song
 - movie-this
 - do-what-it-says
 
+## Technologies Used:
 
+- Node.js 
+- JavaScript
+- NPM Packages: Axios, Colors, Moment, Node-Spotify-API
+- APIs: Spotify API, OMDB API, and Bands In Town API
 
 ## concert-this:
 
@@ -16,6 +21,21 @@ This will search the Bands in Town Artist Events API for an artist and render th
 - Name of the venue
 - Venue location
 - Date of the Event (use moment to format this as "MM/DD/YYYY")
+
+
+### Function: 
+
+![Image of concert-this function](/images.concert-this.png)
+
+### Input:
+
+![Image of concert-this input/command](/images.concert-this-command.png)
+
+
+### Output:
+
+![Image of concert-this output](/images.concert-this-output.png)
+
 
 ## spotify-this-song:
 
