@@ -50,7 +50,7 @@ function concertThis() {
 function spotifyThis() {
 
     if (value === "") {
-        var songName = "The Sign"
+        var songName = "Hotel California"
     }
 
     else {
